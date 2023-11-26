@@ -1,0 +1,55 @@
+
+  <h1>Filmes </h1>
+
+
+
+
+  <input type="text" [(ngModel)]="categoriaEscolhida" name="categoriaEscolhida" placeholder="Digite a categoria de filmes" style= "width: 400px;">
+
+<div *ngIf="categoriaEscolhida">
+  <h3>Categoria "{{ categoriaEscolhida }}"</h3>
+
+
+
+  <div *ngIf="categoriaEscolhida === 'Ação'">
+    <div *ngFor="let filme of filmesAcao" class="filme-container">
+      <img [src]="filme.imagem" alt="{{ filme.titulo }}">
+      <div class="texto">
+        <h4 style="font-size: 20px;">{{ filme.titulo }}</h4>
+        <h2>Descrição</h2>
+        <p>{{ filme.descricao }}</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="categoriaEscolhida === 'Comedia'">
+    <div *ngFor="let filme of filmesComedia" class="filme-container">
+      <img [src]="filme.imagem"  alt="{{ filme.titulo }}">
+      <div class="texto">
+        <h4 strong style =" font-size: 20px;">{{ filme.titulo }}</h4>
+        <h2>Descrição</h2>
+        <p>{{ filme.descricao }}</p>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="categoriaEscolhida === 'Terror'">
+    <div *ngFor="let filme of filmesTerror" class="filme-container">
+      <img [src]="filme.imagem" alt="{{ filme.titulo }}">
+      <div class="texto">
+        <h4 strong style =" font-size: 20px;">{{ filme.titulo }}</h4>
+          <h2>Descrição</h2>
+          <p>{{ filme.descricao }}</p>
+           
+      
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!['Ação', 'Comedia', 'Terror'].includes(categoriaEscolhida)">
+    <p>Desculpe, não há filmes disponíveis para a categoria "{{ categoriaEscolhida }}"</p>
+  </div>
+</div>
